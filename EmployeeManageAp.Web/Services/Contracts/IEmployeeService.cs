@@ -1,9 +1,10 @@
 
-using EmployeeManageAp.Web.Entities.Models;
+using EmployeeManageAp.Web.Entities.DTOs.EmployeeDTOs;
 
 namespace EmployeeManageAp.Web.Services.Contracts;
 
 public interface IEmployeeService
 {
-    Task<List<Employee>> GetAllEmployees();
+    Task<List<EmployeeDto>> GetAllEmployees();
+    Task AddEmployeeAsync(EmployeeForInsertionDto employeeDto);
 }

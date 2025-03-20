@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EmployeeManageAp.Web.Services.Contracts;
+using EmployeeManageAp.Web.Entities.DTOs.EmployeeDTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManageAp.Web.Controllers
@@ -22,6 +19,13 @@ namespace EmployeeManageAp.Web.Controllers
         {
             var employees = await _manager.EmployeeService.GetAllEmployees();
             return Ok(employees);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateEmployee(EmployeeForInsertionDto employeeDto)
+        {
+            await _manager.EmployeeService.AddEmployeeAsync(employeeDto);
+            return Ok();
         }
     }
 }

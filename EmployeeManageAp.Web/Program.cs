@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.ConfigureDbContext(builder.Configuration);
 builder.Services.ConfigureRepository();
 builder.Services.ConfigureService();
+builder.Services.AddAutoMapper(typeof(Program));
 
 
 var app = builder.Build();
